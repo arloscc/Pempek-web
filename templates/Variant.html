@@ -1,0 +1,52 @@
+{% extends 'layout.html' %} {% block head %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css.css') }}">
+<title>Home</title>
+<!-- <h1>Inventaris</h1> -->
+{% endblock %} 
+{% block navbar %}
+<div class="fontav">
+  <nav class="text-decoration-none d-flex justify-content-center  text-dark navtext ">
+    <div class="text-decoration-none d-flex justify-content-center p-4 text-dark    ">
+      <a  class="text-decoration-none text-center p-2  text-dark navv "href="{{ url_for('home') }}">Home</a>
+      <a class="text-decoration-none text-center p-2  text-dark navv" href="{{ url_for('Variant') }}">Variant</a>
+      <a  class="text-decoration-none text-center p-2  text-dark navv"href="">About Us</a>
+    </div>
+  </nav>
+</div>
+{% endblock %}
+
+{% block body %}
+
+<div class="variant">
+
+  <div class="d-flex justify-content-evenly">
+    <div class="">
+      <img class="rounded-pill kapal" src="/static/Kapal-selam.jpg" alt="">
+      <h1 class="f-s">Pempek Kapal Selam</h1>
+    </div>
+    <div class="">
+      <img class="rounded-pill kapal" src="/static/640691448f9d2.jpg" alt="">
+      <h1 class="f-s">Pempek Lenjer</h1>
+    </div>
+    <div class="">
+      <img class="rounded-pill kapal" src="/static/pempektelur.jpg" alt="">
+      <h1 class="f-s">Pempek Telur</h1>
+    </div>
+  </div>
+  <div class="d-flex justify-content-evenly p-2">
+    
+    <div class="">
+      <img class="rounded-pill kapal" src="/static/tahu.jpg" alt="">
+      <h1 class="f-s">Pempek Tahu</h1>
+    </div>
+    <div class="">
+      <img class="rounded-pill kapal" src="/static/Lenggang.jpg" alt="">
+    <h1 class="f-s">Pempek Lenggang</h1>
+  </div>
+  <div class="">
+    <img class="rounded-pill kapal" src="/static/adaan.jpg" alt="">
+    <h1 class="f-s">Pempek Adaan</h1>
+  </div>
+</div>
+</div>
+{% endblock %}

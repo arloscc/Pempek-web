@@ -1,0 +1,41 @@
+{% extends 'layout.html' %} {% block head %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css.css') }}">
+<title>Home</title>
+<!-- <h1>Inventaris</h1> -->
+{% endblock %} 
+{% block navbar %}
+<div class="fontav">
+  <nav class="text-decoration-none d-flex justify-content-center  text-dark navtext ">
+    <div class="text-decoration-none d-flex justify-content-center p-4 text-dark    ">
+      <a  class="text-decoration-none text-center p-2  text-dark navv "href="{{ url_for('home') }}">Home</a>
+      <a class="text-decoration-none text-center p-2  text-dark navv" href="{{ url_for('Variant') }}">Variant</a>
+      <a  class="text-decoration-none text-center p-2  text-dark navv"href="">About Us</a>
+    </div>
+  </nav>
+</div>
+{% endblock %}
+
+{% block body %}
+
+<div class="pdg-flex justify-content-evenly d-flex align-items-center " style="padding: 8rem;margin-top: 5rem;;
+"><img class="d-flex justify-content-evenly  rounded-pill image" src="/static/pempek-palembang.jpg" alt="">
+<div>
+<h1 class="sideimg fw-semibold ">Pempek Aseli Palembang</h1>
+<h1 class="sideimg   fw-semibold pgr ">#Pempek Nomor Satu</h1>
+
+</div>
+</div>
+
+
+<div class="map">
+  <div class="d-flex maps">
+    <iframe class="w-25 h-auto maps" style=" filter: invert(90%)" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d494.17341131815056!2d110.35358060294153!3d-7.748681506137037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a59fbf7d06b89%3A0xb0f7f736edfa1980!2sKost%20Bu%20Tumirah!5e0!3m2!1sid!2sid!4v1703872713037!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="textss">
+      <h1 class="sideimgg ">Where We Are ?</h1>
+      <h1 class="sideimgg ">Check On The Maps Or</h1>
+      
+      <button type="button" class="btn btn-primary buttons"><a class="text-white text-decoration-none" href="https://api.whatsapp.com/send?phone=6289529449568&text=Halo%2C%20Pesan%20pempek1">Pesan Sekarang !</a></button>
+    </div>
+  </div>
+</div>
+{% endblock %}

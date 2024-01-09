@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;800&display=swap");
+
+body {
+  font-family: "Poppins" !important;
+}
+
+@font-face {
+  font-family:bbb ;
+  src: url('Tophandwrite.otf');
+}
+
+.pgr{
+  font-family: bbb!important;
+}
+@font-face {
+  font-family: aaa;
+  src: url("TangoSans.ttf");
+}
+.fontav{
+  font: "Poppins" !important;
+  margin-left: 4rem;
+}
+.navtext{
+    font-family: "Poppins" !important;
+    font-weight: 200!important;
+}
+
+
+.sideimg {
+  font-family: aaa;
+  color: #260500!important;
+}
+.sideimgg {
+  font-size: 1.5rem;
+  padding: 0rem;
+  display: block;
+
+}
+
+.image {
+  width: 35rem;
+  height: auto;
+}
+
+.pdg {
+  padding: 5rem;
+}
+
+.maps {
+  justify-content: center;
+  display: block;
+    align-items: center;
+  position: relative;
+}
+
+.map {
+  justify-content: center;
+  display: block;
+  margin-top: 12rem;
+  padding: 7rem;
+  border-top: 1px solid #ddd;
+}
+
+body {
+  background-image: url(/static/Comp\ 1_00000.png);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 500px;
+
+}
+
+.navv {
+  font-family: "Poppins" !important;
+  font-weight: 400!important;
+    color: white!important;
+    font-weight: 100;
+    font-size: 0.8rem;
+display: block;
+position: relative;
+display: inline-block;
+text-decoration: none;
+margin: 0 3rem 0 0;
+padding: 1rem;
+padding: 4rem 2rem;
+background-color: #FFA200;
+border-radius: 25rem;
+
+}
+
+.navv:hover{
+  transform: scale(1.2rem);
+}
+.navv:hover{
+  animation-duration: 1.2s;
+}
+
+.navv::after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: black;
+  transition: width 1s ease 0s, left 1s ease 0s;
+  width: 0;
+}
+
+.textss {
+  margin-left: 6rem;
+}
+
+.buttons {
+  margin-left: 0rem;
+}
+
+.btn-primary {
+    color: #ffffff;
+    background-color: rgb(253, 146, 23);
+    border-color: rgb(253, 146, 23);
+}
+
+.kapal{
+  width: 20rem;
+}
+
+.f-s{
+  font-size: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+
+.variant{
+  height: 59rem;
+  display: grid;
+  align-items: center;
+}
