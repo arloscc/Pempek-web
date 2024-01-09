@@ -40,9 +40,9 @@ def loginAdmin():
         if result:
             session['is_logged_in'] = True
             session['username'] = result[1]
-            return redirect(url_for('home'))
+            return redirect(url_for('dashboard'))
         else:
-            return render_template('dashboard.html')
+            return render_template('login.html')
     else:
         return render_template('login.html')
     
@@ -53,9 +53,9 @@ def register():
         email = request.form['inpEmail']
         passwd = request.form['inpPass']
         alamat = request.form['inpAlamat']
-        no = request.form['inpNo']
+        #  = request.form['inp']
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO users (id, username, password, email, alamat, nomor_telepon) VALUES (NULL, %s,%s,%s,%s,%s)",(user,passwd,email,alamat,no))
+        cur.execute("INSERT INTO users (id, username, password, email, alamat, mor_telepon) VALUES (NULL, %s,%s,%s,%s,%s)",(user,passwd,email,alamat,))
         try:
             mysql.connection.commit()
             return redirect(url_for('login'))
@@ -72,6 +72,17 @@ def home():
         return redirect(url_for("login"))
     
 
+@app.route('/dashboard')
+def dashboard():
+    if 'is_logged_in' in session:
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT * FROM pempek")
+        result = cur.fetchall()
+        return render_template('dashboard.html',data =result )
+    else:
+        return redirect(url_for("login"))
+    
+
 @app.route('/Variant')
 def Variant():
     if 'is_logged_in' in session:
@@ -79,12 +90,98 @@ def Variant():
     else:
         return redirect(url_for("login"))
     
+@app.route('/Pesanan',methods=['GET','POST'])
+def Pesanan():
+    if 'is_logged_in' in session:
+        if request.method == "POST":
+            data = request.json
+            temp = []
+            if data['PempekKapal'] != 0:
+                resdb = {
+                    "nama" : "",
+                    "jumlah" : 0,
+                    "total" : 0
+                }
+                resdb['nama'] = "PempekKapal"
+                resdb['jumlah'] = data['PempekKapal']
+                resdb['total'] = data['PempekKapal'] * 10000
+                temp.append(resdb)
+            if data['PempekAdaan'] != 0:
+                resdb = {
+                    "nama" : "",
+                    "jumlah" : 0,
+                    "total" : 0
+                }
+                resdb['nama'] = "PempekAdaan"
+                resdb['jumlah'] = data['PempekAdaan']
+                resdb['total'] = data['PempekAdaan'] * 10000
+                temp.append(resdb)
+            if data['PempekLenjer'] != 0:
+                resdb = {
+                    "nama" : "",
+                    "jumlah" : 0,
+                    "total" : 0
+                }
+                resdb['nama'] = "PempekLenjer"
+                resdb['jumlah'] = data['PempekLenjer']
+                resdb['total'] = data['PempekLenjer'] * 10000
+                temp.append(resdb)
+            if data['PempekTelur'] != 0:
+                resdb = {
+                    "nama" : "",
+                    "jumlah" : 0,
+                    "total" : 0
+                }
+                resdb['nama'] = "PempekTelur"
+                resdb['jumlah'] = data['PempekTelur']
+                resdb['total'] = data['PempekTelur'] * 10000
+                temp.append(resdb)
+            if data['PempekTahu'] != 0:
+                resdb = {
+                    "nama" : "",
+                    "jumlah" : 0,
+                    "total" : 0
+                }
+                resdb['nama'] = "PempekTahu"
+                resdb['jumlah'] = data['PempekTahu']
+                resdb['total'] = data['PempekTahu'] * 10000
+                temp.append(resdb)
+            if data['PempekLenggang'] != 0:
+                resdb = {
+                    "nama" : "",
+                    "jumlah" : 0,
+                    "total" : 0
+                }
+                resdb['nama'] = "PempekLenggang"
+                resdb['jumlah'] = data['PempekLenggang']
+                resdb['total'] = data['PempekLenggang'] * 10000
+                temp.append(resdb)
+            cur = mysql.connection.cursor()
+            cur.execute("START TRANSACTION")
+            for j in temp:
+                cur.execute(
+                    "INSERT INTO pempek (id ,username,Pempek,Jumlah	,Total) VALUES ('',%s,%s,%s,%s)",
+                    (
+                    session['username'],
+                    j["nama"],
+                    j["jumlah"],
+                    j["total"]
+                ),
+            )
+            try:
+                mysql.connection.commit()
+                return {"status": "success"}
+            except:
+                return {"status": "failed"}
+        
+    
+
 
 
 @app.route('/logout')
 def logout():
-    session.pop('is_logged_in',None)
-    session.pop('username',None)
+    session.pop('is_logged_in',ne)
+    session.pop('username',ne)
     return redirect(url_for("login"))
 
 if __name__ == "__main__":

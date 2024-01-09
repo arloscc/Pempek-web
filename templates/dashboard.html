@@ -1,0 +1,51 @@
+{% extends 'layout.html' %} {% block head %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css.css') }}" />
+<title>Home</title>
+<!-- <h1>Inventaris</h1> -->
+{% endblock %} {% block navbar %}
+<div class="fontav">
+  <nav
+    class="text-decoration-none d-flex justify-content-center text-dark navtext"
+  >
+    <div
+      class="text-decoration-none d-flex justify-content-center p-4 text-dark"
+    >
+      <a
+        class="text-decoration-none text-center p-2 text-dark navv"
+        href="{{ url_for('home') }}"
+        >Home</a
+      >
+      <a
+        class="text-decoration-none text-center p-2 text-dark navv"
+        href="{{ url_for('Variant') }}"
+        >Variant</a
+      >
+      <a class="text-decoration-none text-center p-2 text-dark navv" href=""
+        >About Us</a
+      >
+    </div>
+  </nav>
+</div>
+{% endblock %} {% block body %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Pempek</th>
+      <th scope="col">Jumlah</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in data %}
+    <tr>
+      <th scope="row">{{ loop.index }}</th>
+      <td>{{ p.2 }}</td>
+      <td>{{ p.3 }}</td>
+      <td>{{ p.4 }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
