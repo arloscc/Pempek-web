@@ -7,39 +7,62 @@
 <div class="">
   <a href="{{ url_for('home') }}">
     <span class="absolute !justify-start py-4 mx-4">
-
-      <div class="text-medium ">
-        <h1 class="sideimg fw-semibold ">Pempek Aseli Palembang</h1>
-        <h1 class="sideimg   fw-semibold pgr ">#Pempek Nomor Satu</h1>
-      </span>
-      
+      <div class="text-medium">
+        <h1 class="sideimg fw-semibold">Pempek Aseli Palembang</h1>
+        <h1 class="sideimg fw-semibold pgr">#Pempek Nomor Satu</h1>
       </div>
+    </span>
   </a>
-  <nav class="text-decoration-none d-flex  text-dark navtext text-right  justify-end	">
-    <div class="text-decoration-none d-flex  p-4 text-dark text-l  items-center  ">
-      <a title="pempek-palembang"  class="mx-24 py-2 text-yellow-500 hover:text-yellow-800 duration-300 font-semibold"href="{{ url_for('home') }}">Home</a>
-      <a title="pempek-palembang" class="p-2 text-yellow-500 hover:text-yellow-800 duration-300 font-semibold" href="{{ url_for('Variant') }}">Variant</a>
-      <a  title="pempek-palembang" class="my-2 px-24 text-yellow-500 hover:text-yellow-800 duration-300 font-semibold "href="{{ url_for('logout') }}"><button class="bg-red-500 duration-300 hover:text-slate-500 hover:bg-red-800 text-white p-2 rounded-xl ">LOGOUT</button></a>
+  <nav
+    class="text-decoration-none d-flex text-dark navtext text-right justify-end"
+  >
+    <div class="text-decoration-none d-flex p-4 text-dark text-l items-center">
+      <a
+        title="pempek-palembang"
+        class="mx-24 py-2 text-yellow-500 hover:text-yellow-800 duration-300 font-semibold"
+        href="{{ url_for('home') }}"
+        >Home</a
+      >
+      <a
+        title="pempek-palembang"
+        class="p-2 text-yellow-500 hover:text-yellow-800 duration-300 font-semibold"
+        href="{{ url_for('Variant') }}"
+        >Variant</a
+      >
+      <a
+        title="pempek-palembang"
+        class="my-2 px-24 text-yellow-500 hover:text-yellow-800 duration-300 font-semibold"
+        href="{{ url_for('logout') }}"
+        ><button
+          class="bg-red-500 duration-300 hover:text-slate-500 hover:bg-red-800 text-white p-2 rounded-xl"
+        >
+          LOGOUT
+        </button></a
+      >
     </div>
   </nav>
 </div>
 {% endblock %} {% block body %}
-<div class="p-4 flex items-center absolute justify-center w-[-webkit-fill-available] -top-2 ml-12  ">
+<div
+  class="p-4 flex items-center absolute justify-center w-[-webkit-fill-available] -top-2 ml-12"
+>
   <h1 id="cart">
     <h1 class="p-2" id="number"></h1>
-    
+
     <button
-    type="submit"
-    class="font-medium text-xl scale-50 bg-amber-400 p-4 rounded-lg hover:text-white duration-300 hover:scale-75 hidden"
-    id="sumbit"
-    onclick="alert('Pesanan ditambahkan');Pesanan()"
+      class="font-medium text-xl scale-50 bg-amber-400 p-4 rounded-lg hover:text-white duration-300 hover:scale-75 hidden"
+      id="sumbit"
+      onclick="alert('Pesanan ditambahkan');Pesanan()"
     >
-    <div class="flex items-center">
-      Selesaikan Pesanan  <i
-      class="hover:text-white duration-300 hover:scale-75"
-      data-feather="check"
-      ></i>
-    </div>
+      <div class="flex items-center">
+        <a>
+          Selesaikan Pesanan
+          <i
+            class="hover:text-white duration-300 hover:scale-75"
+            data-feather="check"
+          ></i
+        ></a>
+      </div>
     </button>
   </h1>
 </div>
@@ -97,7 +120,7 @@
       <img class="rounded-pill kapal" src="/static/tahu.jpg" alt="" />
       <div class="items-center flex flex-col">
         <h1 class="f-s">Pempek Tahu</h1>
-        <button 
+        <button
           class="bg-amber-400 hover:bg-amber-600 rounded-lg p-2"
           onclick="addcart('PempekTahu')"
         >
@@ -112,7 +135,8 @@
       <img class="rounded-pill kapal" src="/static/Lenggang.jpg" alt="" />
       <div class="items-center flex flex-col">
         <h1 class="f-s">Pempek Lenggang</h1>
-        <button itle="pempek-palembang"
+        <button
+          itle="pempek-palembang"
           class="bg-amber-400 hover:bg-amber-600 rounded-lg p-2"
           onclick="addcart('PempekLenggang')"
         >
@@ -127,7 +151,8 @@
       <img class="rounded-pill kapal" src="/static/adaan.jpg" alt="" />
       <div class="items-center flex flex-col">
         <h1 class="f-s">Pempek Adaan</h1>
-        <button title="pempek-palembang"
+        <button
+          title="pempek-palembang"
           class="bg-amber-400 hover:bg-amber-600 rounded-lg p-2"
           onclick="addcart('PempekAdaan')"
         >
@@ -140,6 +165,13 @@
     </div>
   </div>
 </div>
+<div id="imageTab" class="justify-center flex">
+  <img
+    id="img"
+    class="absolute top-24 scale-75 hidden"
+    src="{{url_for('static', filename='qris.jpeg')}}"
+  />
+</div>
 <script>
   let data = {
     PempekKapal: 0,
@@ -150,27 +182,28 @@
     PempekLenggang: 0,
   };
   function addcart(name) {
-    document.getElementById('sumbit').classList.remove('hidden');
+    document.getElementById("sumbit").classList.remove("hidden");
     document.getElementById("cart").innerHTML = name;
     data[name] += 1;
     document.getElementById("number").innerHTML = data[name];
   }
-
   function Pesanan() {
-    fetch("/Pesanan", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json", // Set content type for JSON data
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Response from server:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    document.getElementById("img").classList.remove("hidden");
+    // fetch("/Pesanan", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json", // Set content type for JSON data
+    //   },
+    //   body: JSON.stringify(data),
+    // })
+    // .then((response) => response.json())
+    // .then((data) => {
+    //   console.log("Response from server:", data);
+    // })
+    // .catch((error) => {
+    //   console.error("Error:", error);
+    // });
   }
 </script>
+
 {% endblock %}
