@@ -3,30 +3,40 @@
     <title>Halaman Login</title>
 {% endblock %}
 {% block body %}
-<div class="mt-5"></div>
-<div class="row justify-content-center">
-    <div class="col-4">
-        <div class="card">
-            <div class="card-header">
-                <h2 class="text-center">Halaman Login</h2>
-            </div>
-            <div class="card-body">
-                <form method="post">
-                    <div class="mb-3">
-                        <label for="" class="form-label">Email address</label>
-                        <input type="email" class="form-control" name="inpEmail">    
-                    </div>
-                    <div class="mb-3">
-                        <label for="inpPass" class="form-label">Password</label>
-                        <input type="password" class="form-control" name="inpPass">
-                    </div>
-                    <div class="d-grid !bg-blue">
-                        <button type="submit" class="  bg-sky-500 hover:bg-sky-300 hover:text-zinc-500 border-transparent  btn btn-primary mt-4">Login</button>
-                    </div>
-                </form>
+<div class="justify-evenly flex flex-wrap content-between items-baseline flex-row ml-32">
+
+    
+    <div class="mt-5 "></div>
+    <div class="row justify-content-center flex flex-nowrap items-center ml-48  h-[90vh] items-center; ">
+        <div class="col-4 w-[32rem]">
+            <div class="">
+                <div class="card-header">
+                    <h2 class="text-center">Halaman Login</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Email address</label>
+                            <input type="email" class="form-control" name="inpEmail">    
+                        </div>
+                        <div class="mb-3">
+                            <label for="inpPass" class="form-label">Password</label>
+                            <input type="password" class="form-control" name="inpPass">
+                        </div>
+                        <div class="d-grid !bg-blue">
+                            <button type="submit" class=" p-2  rounded-l duration-300 bg-yellow-500 hover:bg-yellow-300 hover:text-zinc-500 border-transparent   mt-4">Login</button>
+                        </div>
+                    </form>
                 <a href="{{ url_for('register') }}" class="nav-link my-2 d-flex justify-content-center">Register</a>
             </div>
         </div>
     </div>
+    <div class="text-4xl">
+        <h1 class="sideimg fw-semibold ">Pempek Aseli Palembang</h1>
+        <h1 class="sideimg   fw-semibold pgr ">#Pempek Nomor Satu</h1>
+        
+    </div>
 </div>
+</div>
+
 {% endblock %}

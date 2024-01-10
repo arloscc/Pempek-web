@@ -16,14 +16,7 @@ body {
   font-family: aaa;
   src: url("TangoSans.ttf");
 }
-.fontav{
-  font: "Poppins" !important;
-  margin-left: 4rem;
-}
-.navtext{
-    font-family: "Poppins" !important;
-    font-weight: 200!important;
-}
+
 
 
 .sideimg {
@@ -71,43 +64,9 @@ body {
 
 }
 
-.navv {
-  font-family: "Poppins" !important;
-  font-weight: 400!important;
-    color: white!important;
-    font-weight: 100;
-    font-size: 0.8rem;
-display: block;
-position: relative;
-display: inline-block;
-text-decoration: none;
-margin: 0 3rem 0 0;
-padding: 1rem;
-padding: 4rem 2rem;
-background-color: #FFA200;
-border-radius: 25rem;
 
-}
 
-.navv:hover{
-  transform: scale(1.2rem);
-}
-.navv:hover{
-  animation-duration: 1.2s;
-}
 
-.navv::after {
-  background: none repeat scroll 0 0 transparent;
-  bottom: 0;
-  content: "";
-  display: block;
-  height: 2px;
-  left: 50%;
-  position: absolute;
-  background: black;
-  transition: width 1s ease 0s, left 1s ease 0s;
-  width: 0;
-}
 
 .textss {
   margin-left: 6rem;
@@ -117,11 +76,7 @@ border-radius: 25rem;
   margin-left: 0rem;
 }
 
-.btn-primary {
-    color: #ffffff;
-    background-color: rgb(253, 146, 23);
-    border-color: rgb(253, 146, 23);
-}
+
 
 .kapal{
   width: 20rem;
@@ -139,4 +94,4 @@ border-radius: 25rem;
   height: 59rem;
   display: grid;
   align-items: center;
-}
+} 

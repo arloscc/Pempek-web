@@ -4,12 +4,22 @@
 <!-- <h1>Inventaris</h1> -->
 {% endblock %} 
 {% block navbar %}
-<div class="fontav">
-  <nav class="text-decoration-none d-flex justify-content-center  text-dark navtext ">
-    <div class="text-decoration-none d-flex justify-content-center p-4 text-dark    ">
-      <a  class="text-decoration-none text-center p-2  text-dark navv "href="{{ url_for('home') }}">Home</a>
-      <a class="text-decoration-none text-center p-2  text-dark navv" href="{{ url_for('Variant') }}">Variant</a>
-      <a  class="text-decoration-none text-center p-2  text-dark navv"href="">About Us</a>
+<div class="">
+  <a href="{{ url_for('home') }}">
+    <span class="absolute !justify-start py-4 mx-4">
+
+      <div class="text-medium ">
+        <h1 class="sideimg fw-semibold ">Pempek Aseli Palembang</h1>
+        <h1 class="sideimg   fw-semibold pgr ">#Pempek Nomor Satu</h1>
+      </span>
+      
+      </div>
+  </a>
+  <nav class="text-decoration-none d-flex  text-dark navtext text-right  justify-end	">
+    <div class="text-decoration-none d-flex  p-4 text-dark text-l  items-center  ">
+      <a title="pempek-palembang"  class="mx-24 py-2 text-yellow-500 hover:text-yellow-800 duration-300 font-semibold"href="{{ url_for('home') }}">Home</a>
+      <a title="pempek-palembang" class="p-2 text-yellow-500 hover:text-yellow-800 duration-300 font-semibold" href="{{ url_for('Variant') }}">Variant</a>
+      <a  title="pempek-palembang" class="my-2 px-24 text-yellow-500 hover:text-yellow-800 duration-300 font-semibold "href="{{ url_for('logout') }}"><button class="bg-red-500 duration-300 hover:text-slate-500 hover:bg-red-800 text-white p-2 rounded-xl ">LOGOUT</button></a>
     </div>
   </nav>
 </div>
@@ -18,8 +28,8 @@
 {% block body %}
 
 <div class="pdg-flex justify-content-evenly d-flex align-items-center " style="padding: 8rem;margin-top: 5rem;;
-"><img class="d-flex justify-content-evenly  rounded-pill image" src="/static/pempek-palembang.jpg" alt="">
-<div>
+"><img class="d-flex justify-content-evenly  rounded-pill image -mx-6" src="/static/pempek-palembang.jpg" alt="">
+<div class="text-4xl">
 <h1 class="sideimg fw-semibold ">Pempek Aseli Palembang</h1>
 <h1 class="sideimg   fw-semibold pgr ">#Pempek Nomor Satu</h1>
 
@@ -34,7 +44,7 @@
       <h1 class="sideimgg ">Where We Are ?</h1>
       <h1 class="sideimgg ">Check On The Maps Or</h1>
       
-      <button type="button" class="btn btn-primary buttons"><a class="text-white text-decoration-none" href="https://api.whatsapp.com/send?phone=6289529449568&text=Halo%2C%20Pesan%20pempek1">Pesan Sekarang !</a></button>
+      <button type="button" class="p-2 rounded-lg duration-300 hover:text-slate-500 hover:bg-yellow-600 bg-yellow-400 "><a class="text-white text-decoration-none" href="https://api.whatsapp.com/send?phone=6289529449568&text=Halo%2C%20Pesan%20pempek1">Contact Now!</a></button>
     </div>
   </div>
 </div>

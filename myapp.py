@@ -180,8 +180,8 @@ def Pesanan():
 
 @app.route('/logout')
 def logout():
-    session.pop('is_logged_in',ne)
-    session.pop('username',ne)
+    session.pop('is_logged_in')
+    session.pop('username')
     return redirect(url_for("login"))
 
 if __name__ == "__main__":
