@@ -53,9 +53,10 @@ def register():
         email = request.form['inpEmail']
         passwd = request.form['inpPass']
         alamat = request.form['inpAlamat']
+        nomor_telepon =  request.form['inpNo']
         #  = request.form['inp']
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO users (id, username, password, email, alamat, mor_telepon) VALUES (NULL, %s,%s,%s,%s,%s)",(user,passwd,email,alamat,))
+        cur.execute("INSERT INTO users (id, username, password, email, alamat, nomor_telepon) VALUES (NULL, %s,%s,%s,%s,%s)",(user,passwd,email,alamat,nomor_telepon))
         try:
             mysql.connection.commit()
             return redirect(url_for('login'))
