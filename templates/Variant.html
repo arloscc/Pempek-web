@@ -189,20 +189,20 @@
   }
   function Pesanan() {
     document.getElementById("img").classList.remove("hidden");
-    // fetch("/Pesanan", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json", // Set content type for JSON data
-    //   },
-    //   body: JSON.stringify(data),
-    // })
-    // .then((response) => response.json())
-    // .then((data) => {
-    //   console.log("Response from server:", data);
-    // })
-    // .catch((error) => {
-    //   console.error("Error:", error);
-    // });
+    fetch("/Pesanan", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json", // Set content type for JSON data
+      },
+      body: JSON.stringify(data),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Response from server:", data);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
   }
 </script>
 
