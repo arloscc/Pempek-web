@@ -38,18 +38,19 @@
     <tr >
       <th scope="row">{{ loop.index }}</th>
       <td>{{ p.2}}</td> 
-      <td>{{ p.3 }}  </td>
+      <td  id="{{ p.0 }}" class="jml">{{ p.3 }}  </td>
       <td>{{ p.4 }}  </td>
       <td><a href="/hapus/{{ p.0 }}"><button  type="submit"  name="hapus" class="hover:text-red-500 duration-300 "><i id="id" data-feather="trash"> </button></i></a></td>
-      <td><button class="hover:text-yellow-500 duration-300"><i id="id" data-feather="edit"> </button></i></td>
+     
     
-<div class="input-group mb-3">
+<!-- <div class="input-group mb-3">
   <label for="Jumlah Baru"></label>
   <input type="text" placeholder="Masukkan Jumlah Baru : " >
-</div>
+</div> -->
     {% endfor %}
   </tbody>
 </table>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
   // function hapusData(id) {
   //   if (confirm("Anda yakin ingin menghapus data dengan ID " + id + "?")) {
@@ -69,6 +70,50 @@
   //       xhr.send();
   //   }
 // }
-</script>
+$(function () {
+    $(".jml").dblclick(function () {
+        newInput(this);
+    });
+});
 
+function closeInput(elm) {
+    var value = $(elm).find('input').val();
+    $(elm).empty().text(value);
+  console.log($(elm).attr("id"));
+    fetch("/update", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json", 
+      },
+      body: JSON.stringify({"id": $(elm).attr('id'), "value":value}),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Response from server:", data);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+    $(elm).bind("dblclick", function () {
+        newInput(elm);
+    });
+    window.location.reload();
+}  
+        
+function newInput(elm) {
+    $(elm).unbind('dblclick');
+
+    var value = $(elm).text();
+    $(elm).empty();
+    
+    $("<input>")
+        .attr('type', 'text')
+        .val(value)
+        .blur(function() {
+            closeInput(elm);
+        })
+        .appendTo($(elm))
+        .focus();
+}
+</script>
 {% endblock %}

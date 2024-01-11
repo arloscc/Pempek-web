@@ -106,6 +106,46 @@ def Variant():
     else:
         return redirect(url_for("login"))
     
+@app.route('/update',methods=['GET','POST'])
+def update():
+    if 'is_logged_in' in session:
+        if request.method == "POST":
+            data = request.json
+            cur = mysql.connection.cursor()
+            cur.execute("SELECT * FROM pempek")
+            result = cur.fetchone()
+            total = 0
+            test = int(data["value"])
+            match result[2] :
+                case "PempekKapal":
+                    total = test * 13000
+                case "PempekAdaan":
+                    total = test * 10000
+                case "PempekLenjer":
+                    total = test * 9000
+                case "PempekTelur":
+                    total = test * 15000
+                case "PempekTahu":
+                    total = test * 10000
+                case "PempekLenggang":
+                    total = test * 10000
+                case _:  # Wildcard pattern for default case
+                    total = 0
+            cur.execute(
+                "UPDATE pempek SET jumlah = %s, total = '%s' WHERE id = %s",
+                (
+                data["value"],
+                total,
+                data["id"],
+            )),
+            try:
+                mysql.connection.commit()
+                return {"status": "success"}
+            except:
+                return {"status": "failed"}
+
+
+    
 @app.route('/Pesanan',methods=['GET','POST'])
 def Pesanan():
     if 'is_logged_in' in session:
@@ -120,7 +160,7 @@ def Pesanan():
                 }
                 resdb['nama'] = "PempekKapal"
                 resdb['jumlah'] = data['PempekKapal']
-                resdb['total'] = data['PempekKapal'] * 10000
+                resdb['total'] = data['PempekKapal'] * 13000
                 temp.append(resdb)
             if data['PempekAdaan'] != 0:
                 resdb = {
@@ -140,7 +180,7 @@ def Pesanan():
                 }
                 resdb['nama'] = "PempekLenjer"
                 resdb['jumlah'] = data['PempekLenjer']
-                resdb['total'] = data['PempekLenjer'] * 10000
+                resdb['total'] = data['PempekLenjer'] * 9000
                 temp.append(resdb)
             if data['PempekTelur'] != 0:
                 resdb = {
@@ -150,7 +190,7 @@ def Pesanan():
                 }
                 resdb['nama'] = "PempekTelur"
                 resdb['jumlah'] = data['PempekTelur']
-                resdb['total'] = data['PempekTelur'] * 10000
+                resdb['total'] = data['PempekTelur'] * 15000
                 temp.append(resdb)
             if data['PempekTahu'] != 0:
                 resdb = {
