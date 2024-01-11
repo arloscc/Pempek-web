@@ -1,4 +1,5 @@
 {% extends 'layout.html' %} {% block head %}
+<script src="https://unpkg.com/feather-icons"></script>
 <link rel="stylesheet" href="{{ url_for('static',filename='css.css') }}" />
 <title>Dashboard</title>
 <!-- <h1>Inventaris</h1> -->
@@ -34,14 +35,40 @@
   </thead>
   <tbody>
     {% for p in data %}
-    <tr>
+    <tr >
       <th scope="row">{{ loop.index }}</th>
-      <td>{{ p.2 }}</td>
-      <td>{{ p.3 }}</td>
-      <td>{{ p.4 }}</td>
-    </tr>
+      <td>{{ p.2}}</td> 
+      <td>{{ p.3 }}  </td>
+      <td>{{ p.4 }}  </td>
+      <td><a href="/hapus/{{ p.0 }}"><button  type="submit"  name="hapus" class="hover:text-red-500 duration-300 "><i id="id" data-feather="trash"> </button></i></a></td>
+      <td><button class="hover:text-yellow-500 duration-300"><i id="id" data-feather="edit"> </button></i></td>
+    
+<div class="input-group mb-3">
+  <label for="Jumlah Baru"></label>
+  <input type="text" placeholder="Masukkan Jumlah Baru : " >
+</div>
     {% endfor %}
   </tbody>
 </table>
+<script>
+  // function hapusData(id) {
+  //   if (confirm("Anda yakin ingin menghapus data dengan ID " + id + "?")) {
+  //       var xhr = new XMLHttpRequest();
+  //       xhr.open("GET", "/hapus_data/" + id, true);
+  //       xhr.onreadystatechange = function () {
+  //           if (xhr.readyState === 4 && xhr.status === 200) {
+  //               var response = JSON.parse(xhr.responseText);
+  //               if (response.status === "success") {
+  //                   alert("Data berhasil dihapus");
+  //                   location.reload();
+  //               } else {
+  //                   alert("Gagal menghapus data: " + response.message);
+  //               }
+  //           }
+  //       };
+  //       xhr.send();
+  //   }
+// }
+</script>
 
 {% endblock %}

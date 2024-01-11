@@ -84,6 +84,21 @@ def dashboard():
         return redirect(url_for("login"))
     
 
+
+@app.route('/hapus/<id>')
+def hapus(id):
+    if 'is_logged_in' in session:
+        id_yang_dihapus = hapus
+        cur = mysql.connection.cursor()
+        cur.execute("DELETE FROM pempek WHERE id=%s", (id,))
+        mysql.connection.commit()
+        return redirect(url_for("dashboard"))
+    else:
+        return redirect(url_for("login"))
+
+        
+
+
 @app.route('/Variant')
 def Variant():
     if 'is_logged_in' in session:
